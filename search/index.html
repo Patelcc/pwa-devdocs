@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Magento PWA Documentation</title>
+	<title>Search Results | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -37,7 +37,7 @@
 </script>
 
 
-	<link rel="canonical" href="/pwa-devdocs/reference/ui-components/">
+	<link rel="canonical" href="/pwa-devdocs/search/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -51,7 +51,7 @@
 	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://magento.com/apple-touch-icon-180x180.png">
 
 </head>
-<body class="layout-default">
+<body class="layout-search">
 
 	<header class="site-header">
 
@@ -131,230 +131,143 @@
 			<a id="main-content"></a>
 
 
-<div class="content-container">
-
-	<!-- sidebar -->
-<aside class="sidebar">
-    <a href="#" class="toc-toggler">Table of Contents</a>
-    <div class="sidebar-wrapper">
-
-      
-
-
-
-
-
-<div class="menu-section">
-    <div class="toc-entry"><h4 class="guide-title"></h4></div>
-
-    <ul class="table-of-contents">
-    
-    </ul>
+<div class="search-results-header">
+  <div id="search-input"></div>
 </div>
 
+<div class="search-results container">
 
-    </div>
-</aside>
-<!-- /sidebar -->
+  <article>
+    <div id="stats"></div>
+    <div id="hits"></div>
+  </article>
 
+  <aside>
+    <div id="tags"></div>
+  </aside>
 
-	<section class="content">
-		<div class="content-wrap">
-			<!-- page-header -->
-<section class="page-intro">
-	<nav class="breadcrumbs">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/pwa-devdocs/">Home</a></li>
+</div><!-- container -->
 
-
-
-
-
-
-  
-  
-  
-
-  
-
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-
-
-  
-  
-  
-
-  
-
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-    
-    <li class="breadcrumb-item active">
-      <a href="/pwa-devdocs/reference/ui-components/">
-        
-      </a>
-    </li>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-
-
-
-  </ol>
-</nav>
-
-	<h1 class="page-heading"></h1>
-</section>
-
-			<h2 id="sorry">Sorry!</h2>
-
-<p>The content for this page does not exist yet!</p>
-
-<p>If you would like to contribute content for this page, please visit our <a href="https://github.com/magento-research/pwa-devdocs/blob/master/.github/CONTRIBUTING.md">Contribution Guide</a>.</p>
-
-<p><a href="/pwa-devdocs/">Return to main page</a></p>
-
-
-			
-		</div>
-		<!-- /.content-wrap -->
-
-		<div class="page-info">
-
-  
-
-  
-  <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/reference/ui-components/index.md" target="_blank">
-      Edit this page on GitHub
-    </a>
-  </div>
-  
-
-  
-  <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /reference/ui-components/" target="_blank">
-      Give us feedback
-    </a>
-  </div>
-  
-
+<div class="search-results-footer">
+  <div id="pagination"></div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+<script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
 
-	</section>
-	<!-- /.content -->
+<script>
 
-</div> <!-- /.content-container -->
+  app({
+    appId: algolia.id,
+    apiKey: algolia.key,
+    indexName: algolia.index,
+    urlSync: true
+  });
+
+  function app(opts) {
+    var switcher = document.getElementsByClassName('version-switcher')[0];
+    var searchParameters = {
+
+    };
+
+    if ( switcher ) {
+      var ver = String( switcher.dataset.version );
+      searchParameters.facets = ['guide_version'];
+      searchParameters.facetsRefinements = {
+        guide_version: [ ver ]
+      };
+    }
+
+
+    const search = instantsearch({
+      appId: opts.appId,
+      apiKey: opts.apiKey,
+      indexName: opts.indexName,
+      urlSync: true,
+      searchParameters: searchParameters
+    });
+
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '#search-input',
+        placeholder: 'Search',
+      })
+    );
+
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '#hits',
+        hitsPerPage: 10,
+        templates: {
+          item: function ( item ) {
+            var title_highlighted = item._highlightResult.title;
+            var title_plain = item.title;
+            var url = item.url;
+            var content = '';
+            // Check if we can show title, if not - at least show URL
+            if (typeof title_highlighted !== 'undefined') {
+              title = title_highlighted.value;
+            } else if (typeof title_plain !== 'undefined') {
+              title = title_plain;
+            } else {
+              title = url;
+            }
+
+            // Check if we have the description of the hit
+            if ( typeof item._highlightResult.content !== 'undefined' ) {
+              content = item._highlightResult.content.value;
+            }
+
+            //TODO: fix the baseurl on the entire site then remove this:
+            if ( baseUrl == '/' ) {
+              var link = '<a href="' + url + '">' + title +'</a>';
+            } else {
+              var link = '<a href="' + baseUrl + url + '">' + title +'</a>';
+            }
+
+            return '<div class="hit"><h2 class="hit-name">'+ link + '</h2><div class="hit-url">'+ document.location.origin + url +'</div><div class="hit-content">' + content + '</div></div>';
+          },
+          empty: '<div id="no-results-message"><p>No results found.</p></div>',
+        },
+      })
+    );
+
+    search.addWidget(
+      instantsearch.widgets.stats({
+        container: '#stats',
+      })
+    );
+
+
+    search.addWidget(
+      instantsearch.widgets.refinementList({
+        container: '#tags',
+        attributeName: 'functional_areas',
+        operator: 'or',
+        limit: 20,
+        sortBy: ["name:asc"],
+        templates: {
+          header: 'Functional Areas'
+        }
+      })
+    );
+
+
+
+
+    search.addWidget(
+      instantsearch.widgets.pagination({
+        container: '#pagination',
+        scrollTo: '#search-input',
+      })
+    );
+
+    search.start();
+  }
+
+</script>
+
+
 
 
 	</div>
