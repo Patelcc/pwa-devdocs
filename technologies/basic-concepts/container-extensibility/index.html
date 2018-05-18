@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Magento PWA Documentation</title>
+	<title>Container extensibility | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -185,9 +185,19 @@
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/basic-concepts/" class=" ">Basic concepts</a>
+            <a href="/pwa-devdocs/technologies/basic-concepts/" class=" parent">Basic concepts</a>
             
 
+            
+            <ul>
+            
+                <li class="active">
+                    
+                    <a href="/pwa-devdocs/technologies/basic-concepts/container-extensibility/" class=" ">Container extensibility</a>
+                    
+                </li>
+            
+            </ul>
             
         </li>
     
@@ -383,7 +393,7 @@
     
     <li class="breadcrumb-item active">
       <a href="/pwa-devdocs/technologies/basic-concepts/container-extensibility/">
-        
+        Container extensibility
       </a>
     </li>
     
@@ -426,16 +436,40 @@
   </ol>
 </nav>
 
-	<h1 class="page-heading"></h1>
+	<h1 class="page-heading">Container extensibility</h1>
 </section>
 
-			<h2 id="sorry">Sorry!</h2>
+			<p>A <strong>Container</strong> is an HTML element that contains 0 or more <a href="/pwa-devdocs/peregrine/reference/container-child/"><code class="highlighter-rouge">ContainerChild</code></a> components.
+It acts as the target for <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/"><code class="highlighter-rouge">magento-loader-layout</code></a> operations.</p>
 
-<p>The content for this page does not exist yet!</p>
+<h2 id="creating-a-container">Creating a Container</h2>
 
-<p>To contribute to this page, see the following <a href="https://github.com/magento-research/pwa-devdocs/issues/15">GitHub Issue</a> for details.</p>
+<p>To create a Container in a React component, add a <code class="highlighter-rouge">data-mid</code> prop to any DOM element, such as a <code class="highlighter-rouge">div</code>, <code class="highlighter-rouge">span</code>, etc. 
+The value of the <code class="highlighter-rouge">data-mid</code> prop <em>must</em> be a literal string value.
+It cannot be a dynamic value or a variable reference.</p>
 
-<p><a href="/pwa-devdocs/">Return to main page</a></p>
+<p><strong>Example:</strong></p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">data</span><span class="o">-</span><span class="nx">mid</span><span class="o">=</span><span class="s2">"containerId"</span><span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong>
+<em>Composite components, such as a class or function, cannot be used as a Container.</em></p>
+
+<h2 id="extending-a-container">Extending a Container</h2>
+
+<p><a href="/pwa-devdocs/peregrine/reference/container-child/"><code class="highlighter-rouge">ContainerChild</code></a> components are the only allowed children of a Container. 
+This makes it possible to extend a Container using the <code class="highlighter-rouge">magento-loader-layout</code> tool from the <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>.</p>
+
+<p><code class="highlighter-rouge">magento-loader-layout</code> supports the following operations:</p>
+
+<ul>
+  <li>Remove a container</li>
+  <li>Remove a child component in a container</li>
+  <li>Insert content before a child component in a container</li>
+  <li>Insert content after a child component in a container</li>
+</ul>
+
+<p>See: <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/#examples">Code examples</a></p>
 
 
 			
