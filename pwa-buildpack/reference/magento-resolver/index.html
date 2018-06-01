@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Magento PWA Documentation</title>
+	<title>MagentoResolver | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/technologies/basic-concepts/app-shell/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -100,7 +100,7 @@
   
 
   
-  <li class="menuitem ">
+  <li class="menuitem current">
       <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
   </li>
   
@@ -163,13 +163,13 @@
 
 
 <div class="menu-section">
-    <div class="toc-entry"><h4 class="guide-title">Technologies</h4></div>
+    <div class="toc-entry"><h4 class="guide-title">PWA Buildpack</h4></div>
 
     <ul class="table-of-contents">
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/overview/" class=" ">Overview</a>
+            <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
 
             
@@ -177,15 +177,7 @@
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/tools-libraries/" class=" ">Tools and libraries</a>
-            
-
-            
-        </li>
-    
-        <li >
-            
-            <a href="/pwa-devdocs/technologies/basic-concepts/" class=" parent">Basic concepts</a>
+            <a href="/pwa-devdocs/pwa-buildpack/project-setup/" class=" parent">Project setup tutorial</a>
             
 
             
@@ -193,7 +185,79 @@
             
                 <li >
                     
-                    <a href="/pwa-devdocs/technologies/basic-concepts/container-extensibility/" class=" ">Container extensibility</a>
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/" class=" ">Link project to the Magento backend</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/" class=" parent">Create configuration files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <span>Tools reference</span>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/" class=" ">magento-layout-loader</a>
+                    
+                </li>
+            
+                <li class="active">
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/" class=" ">MagentoResolver</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/" class=" ">Object Types</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
                     
                 </li>
             
@@ -265,123 +329,10 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-
-
-  
-  
-  
-
-  
-
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
     
     <li class="breadcrumb-item ">
-      <a href="/pwa-devdocs/technologies/basic-concepts/">
-        Basic Concepts
+      <a href="/pwa-devdocs/pwa-buildpack/">
+        PWA Buildpack
       </a>
     </li>
     
@@ -402,6 +353,32 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -424,6 +401,79 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
   
     
   
@@ -452,10 +502,24 @@
     
     
     <li class="breadcrumb-item active">
-      <a href="/pwa-devdocs/technologies/basic-concepts/app-shell/">
-        
+      <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/">
+        MagentoResolver
       </a>
     </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -502,16 +566,62 @@
   </ol>
 </nav>
 
-	<h1 class="page-heading"></h1>
+	<h1 class="page-heading">MagentoResolver</h1>
 </section>
 
-			<h2 id="sorry">Sorry!</h2>
+			<p>An adapter that configures Webpack to resolve assets using Magento PWA conventions.</p>
 
-<p>The content for this page does not exist yet!</p>
+<p>This module generates a configuration object used in the <a href="https://webpack.js.org/configuration/resolve/"><code class="highlighter-rouge">resolve</code></a> property of a Webpack config.
+The configuration object tells Webpack how to traverse the filesystem structure for assets required in source files.</p>
 
-<p>To contribute to this page, see the following <a href="https://github.com/magento-research/pwa-devdocs/issues/8">GitHub Issue</a> for details.</p>
+<p>Currently, MagentoResolver does very little, but it’s likely that the Magento development environment will require custom resolution rules in the future; this utility sets the precedent of the API for delivering those rules.</p>
 
-<p><a href="/pwa-devdocs/">Return to main page</a></p>
+<h2 id="api">API</h2>
+
+<h3 id="configureoptions"><code class="highlighter-rouge">configure(options)</code></h3>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">options:</code><a href="/pwa-devdocs/pwa-buildpack/reference/object-types/#localprojectlocation"><code class="highlighter-rouge">LocalProjectLocation</code></a> - Configuration object that describes where the theme folders are located.</li>
+</ul>
+
+<p><strong>Return:</strong></p>
+
+<p>A <a href="https://webpack.js.org/configuration/configuration-types/#exporting-a-promise">Promise</a> configuration type for webpack.</p>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+<code class="highlighter-rouge">MagentoResolver.configure()</code> is asynchronous.</p>
+
+<h2 id="example">Example</h2>
+
+<p>In <code class="highlighter-rouge">webpack.config.js</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">buildpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@magento/pwa-buildpack'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">MagentoResolver</span> <span class="o">=</span> <span class="nx">buildpack</span><span class="p">.</span><span class="nx">Webpack</span><span class="p">.</span><span class="nx">MagentoResolver</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">async</span> <span class="nx">env</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">config</span> <span class="p">{</span>
+        <span class="cm">/* webpack entry, output, rules, etc */</span>
+
+
+        <span class="na">resolve</span><span class="p">:</span> <span class="kr">await</span> <span class="nx">MagentoResolver</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+            <span class="na">paths</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">root</span><span class="p">:</span> <span class="nx">__dirname</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="bs-callout bs-callout-tip">The special <code class="highlighter-rouge">__dirname</code> variable in Node always refers to the directory containing the currently executing script file.
+This is different from the “working directory”, which is the current directory of the shell when the current process was started.</p>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+The example provided uses the newer, cleaner <code class="highlighter-rouge">async/await</code> syntax instead of using Promises directly.</p>
 
 
 			
@@ -524,7 +634,7 @@
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/technologies/basic-concepts/app-shell/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/reference/magento-resolver/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -532,7 +642,7 @@
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /technologies/basic-concepts/app-shell/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/reference/magento-resolver/" target="_blank">
       Give us feedback
     </a>
   </div>

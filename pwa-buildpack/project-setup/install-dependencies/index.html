@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>MagentoRootComponentsPlugin | Magento PWA Documentation</title>
+	<title>Install project dependencies | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -189,7 +189,7 @@
                     
                 </li>
             
-                <li >
+                <li class="active">
                     
                     <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
                     
@@ -237,7 +237,7 @@
                     
                 </li>
             
-                <li class="active">
+                <li >
                     
                     <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
                     
@@ -409,6 +409,13 @@
     
   
     
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/">
+        Project setup tutorial
+      </a>
+    </li>
+    
   
     
   
@@ -474,20 +481,6 @@
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -508,10 +501,24 @@
     
     
     <li class="breadcrumb-item active">
-      <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/">
-        MagentoRootComponentsPlugin
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/">
+        Install project dependencies
       </a>
     </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -566,48 +573,100 @@
   </ol>
 </nav>
 
-	<h1 class="page-heading">MagentoRootComponentsPlugin</h1>
+	<h1 class="page-heading">Install project dependencies</h1>
 </section>
 
-			<p>This plugin creates <a href="https://webpack.js.org/guides/code-splitting/">unique chunks</a> for each Root Component in a Magento PWA theme and extension.</p>
+			<p>In the <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/">previous topic</a>, you created the basic directory structure and files for a Magento theme.
+In this topic you will initialize the <code class="highlighter-rouge">package.json</code> file and install project dependencies for your Magento PWA theme.</p>
 
-<p>For example, given a <code class="highlighter-rouge">RootComponents</code> directory in a theme with the following structure:</p>
+<h2 id="initialize-and-define-the-package-configuration-file">Initialize and define the package configuration file</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── Page1
-│   └── index.js
-├── Page2
-│   └── index.js
-└── Page3
-    └── index.js
-</code></pre></div></div>
+<ol>
+  <li>
+    <p>The following command uses <code class="highlighter-rouge">npm</code> to create your project’s <code class="highlighter-rouge">package.json</code> file using default project values:</p>
 
-<p>The plugin creates unique chunks for <code class="highlighter-rouge">Page1</code>, <code class="highlighter-rouge">Page2</code>, and <code class="highlighter-rouge">Page3</code>.
-Further webpack optimization techiniques, such as <a href="https://webpack.js.org/plugins/commons-chunk-plugin/"><code class="highlighter-rouge">CommonsChunkPlugin</code></a>, can be applied as usual.</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init <span class="nt">-y</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the following command to install <a href="/pwa-devdocs/peregrine/">peregrine</a> and <a href="http://reactjs.org/">React</a> as a production dependency:</p>
 
-<h2 id="example-usage">Example usage</h2>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save</span> @magento/peregrine <span class="se">\</span>
+react react-dom react-redux react-router-dom redux@3
+</code></pre></div>    </div>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// webpack.config.js</span>
+    <p>These dependencies allow you to use the UI components and services provided by the peregrine project to develop your theme.</p>
+  </li>
+  <li>
+    <p>Run the following command to install <a href="/pwa-devdocs/pwa-buildpack/">pwa-buildpack</a> and its standard peer dependincies:</p>
 
-<span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
-<span class="kd">const</span> <span class="p">{</span> <span class="nx">MagentoRootComponentsPlugin</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@magento/pwa-buildpack'</span><span class="p">);</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> @magento/pwa-buildpack <span class="se">\</span>
+babel-core babel-loader babel-helper-module-imports <span class="se">\</span>
+babel-plugin-syntax-jsx babel-plugin-transform-class-properties <span class="se">\</span>
+babel-plugin-transform-object-rest-spread babel-plugin-transform-react-jsx <span class="se">\</span>
+webpack@3 webpack-dev-server@2
+</code></pre></div>    </div>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">entry</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">main</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'src'</span><span class="p">)</span>
-    <span class="p">},</span>
-    <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'dist'</span><span class="p">),</span>
-        <span class="na">filename</span><span class="p">:</span> <span class="s1">'[name].js'</span><span class="p">,</span>
-        <span class="na">chunkFilename</span><span class="p">:</span> <span class="s1">'[name].chunk.js'</span>
-    <span class="p">},</span>
-    <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
-        <span class="k">new</span> <span class="nx">MagentoRootComponentsPlugin</span><span class="p">({</span>
-            <span class="na">rootComponentsDirs</span><span class="p">:</span> <span class="p">[</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'src/RootComponents'</span><span class="p">)],</span> <span class="c1">// optional</span>
-            <span class="na">manifestFileName</span><span class="p">:</span> <span class="s1">'roots-manifest.json'</span> <span class="c1">// optional</span>
-        <span class="p">})</span>
-    <span class="p">]</span>
-<span class="p">};</span>
-</code></pre></div></div>
+    <p>These dependencies allow you to create a <a href="https://webpack.js.org/">Webpack</a>-based build environment for your project.</p>
+
+    <p>It also installs <a href="https://babeljs.io/">Babel</a>, a JavaScript transpiler and modifier that allows you to write code using the latest and custom JavaScript language features without having to worry about browser compatibility.</p>
+  </li>
+  <li>
+    <p><strong>Optional</strong> Run the following command to install the <code class="highlighter-rouge">dotenv</code> module:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">--save-dev</span> dotenv
+</code></pre></div>    </div>
+
+    <p>This tutorial uses the <code class="highlighter-rouge">dotenv</code> module to load environment values from a <code class="highlighter-rouge">.env</code> file and to separate environment-specific values from source code.</p>
+
+    <p>Using this module is not a requirement for working with PWA studios, but
+it is good practice to use this or other similar tools for managing environment variables across different platforms.</p>
+  </li>
+</ol>
+
+<h2 id="review-packagejson-content">Review <code class="highlighter-rouge">package.json</code> content</h2>
+
+<p>Now that you have your project dependencies installed, your <code class="highlighter-rouge">package.json</code> file should look like the following:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"orange-theme"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.js"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"@magento/peregrine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.1.5-alpha"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^16.3.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^16.3.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"react-redux"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.0.7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"react-router-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.2.2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"redux"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.7.2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"@magento/pwa-buildpack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.26.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-helper-module-imports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.0.0-beta.3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.1.4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-plugin-syntax-jsx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.18.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-plugin-transform-class-properties"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.24.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-plugin-transform-object-rest-spread"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.26.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-plugin-transform-react-jsx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.24.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dotenv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webpack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.5.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webpack-cli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^2.0.14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webpack-dev-server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.1.3"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+Dependency versions in your <code class="highlighter-rouge">package.json</code> file may differ from the ones listed here.</p>
+
+<p>In the next topic, you will <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/">link your project to the Magento backend</a>.</p>
 
 
 			
@@ -620,7 +679,7 @@ Further webpack optimization techiniques, such as <a href="https://webpack.js.or
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/reference/root-components-plugin/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/project-setup/install-dependencies/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -628,7 +687,7 @@ Further webpack optimization techiniques, such as <a href="https://webpack.js.or
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/reference/root-components-plugin/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/project-setup/install-dependencies/" target="_blank">
       Give us feedback
     </a>
   </div>

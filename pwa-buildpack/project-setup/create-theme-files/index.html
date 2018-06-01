@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>PWA Buildpack | Magento PWA Documentation</title>
+	<title>Create the initial theme files | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -167,7 +167,7 @@
 
     <ul class="table-of-contents">
     
-        <li class="active">
+        <li >
             
             <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
@@ -183,7 +183,7 @@
             
             <ul>
             
-                <li >
+                <li class="active">
                     
                     <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
                     
@@ -330,7 +330,7 @@
   
     
     
-    <li class="breadcrumb-item active">
+    <li class="breadcrumb-item ">
       <a href="/pwa-devdocs/pwa-buildpack/">
         PWA Buildpack
       </a>
@@ -381,17 +381,286 @@
   
 
 
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/">
+        Project setup tutorial
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/">
+        Create the initial theme files
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
 
   </ol>
 </nav>
 
-	<h1 class="page-heading">PWA Buildpack</h1>
+	<h1 class="page-heading">Create the initial theme files</h1>
 </section>
 
-			<p>PWA Buildpack is a build and development tool and library for Magento Progressive Web Apps. 
-Use the PWA Buildpack project to set up and configure your local environment for PWA development.</p>
+			<p>Unlike regular <a href="http://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-create.html">Magento Themes</a>, Magento Progressive Web Apps are built on top of the <a href="https://github.com/magento-research/theme-frontend-pwa">PWA base theme</a>.
+They are also <em>decoupled</em> from the backing Magento stores, so they no longer need to be developed under <code class="highlighter-rouge">app/design/frontend</code>.</p>
 
-<p>Visit the <a href="https://github.com/magento-research/pwa-buildpack"><code class="highlighter-rouge">pwa-buildpack</code></a> repository to contribute to this project.</p>
+<p>It is still possible to develop your project under <code class="highlighter-rouge">app/design/frontend</code>, but 
+the recommended approach is to use Composer to manage the connection between your project and the backend store.</p>
+
+<p>In this part of the <a href="/pwa-devdocs/pwa-buildpack/project-setup/">Project setup tutorial</a>, you will create the initial files and directories for a Magento PWA theme using the recommended Composer approach.</p>
+
+<h2 id="create-theme-directory-and-files">Create theme directory and files</h2>
+
+<ol>
+  <li>
+    <p>For this tutorial, <strong>orange-theme</strong> will be the name of the theme directory.
+Run the following command to create this directory and <code class="highlighter-rouge">cd</code> into it:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>orange-theme <span class="o">&amp;&amp;</span> <span class="nb">cd </span>orange-theme
+</code></pre></div>    </div>
+
+    <p class="bs-callout bs-callout-info"><strong>Note:</strong>
+Your theme directory does not need to be created inside a Magento application directory.</p>
+  </li>
+  <li>Create a <code class="highlighter-rouge">media</code> directory and place a <code class="highlighter-rouge">preview.jpg</code> image file inside.
+ This image is used as the preview image for your theme.</li>
+  <li>
+    <p>Create a <code class="highlighter-rouge">theme.xml</code> file.</p>
+
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+
+ <span class="nt">&lt;theme</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">"urn:magento:framework:Config/etc/theme.xsd"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;title&gt;</span>Orange Theme<span class="nt">&lt;/title&gt;</span>
+     <span class="nt">&lt;parent&gt;</span>Magento/pwa<span class="nt">&lt;/parent&gt;</span>
+     <span class="nt">&lt;media&gt;</span>
+         <span class="nt">&lt;preview_image&gt;</span>media/preview.jpg<span class="nt">&lt;/preview_image&gt;</span>
+     <span class="nt">&lt;/media&gt;</span>
+ <span class="nt">&lt;/theme&gt;</span>
+</code></pre></div>    </div>
+
+    <p>This file provides the name of theme, the required PWA parent theme, and the location of the preview image to Magento.</p>
+  </li>
+  <li>
+    <p>Create a <code class="highlighter-rouge">composer.json</code> file.</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"orangecompany/orange-theme"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The inimitable Orange Theme."</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"php"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~7.1.0|~7.2.0"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"magento/framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.3.*"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"magento-research/theme-frontend-pwa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"magento2-theme"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OSL-3.0"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"registration.php"</span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p>This file makes your theme a composer package for easy distribution in the <a href="https://marketplace.magento.com/">Magento Marketplace</a>.</p>
+  </li>
+  <li>
+    <p>Create a <code class="highlighter-rouge">registration.php</code> file to register your theme with Magento.</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">&lt;?php</span>
+
+ <span class="k">use</span> <span class="nx">\Magento\Framework\Component\ComponentRegistrar</span><span class="p">;</span>
+
+ <span class="nx">ComponentRegistrar</span><span class="o">::</span><span class="na">register</span><span class="p">(</span>
+     <span class="nx">ComponentRegistrar</span><span class="o">::</span><span class="na">THEME</span><span class="p">,</span>
+     <span class="s1">'frontend/OrangeCompany/orange-theme'</span><span class="p">,</span>
+     <span class="nx">__DIR__</span>
+ <span class="p">);</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create directories for your theme’s static files using the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir</span> <span class="nt">-p</span> web/css/source web/fonts web/images web/js
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Now that you have the basic directory structure for your theme project, you need to <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/">install project dependencies</a>.</p>
 
 
 			
@@ -404,7 +673,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/project-setup/create-theme-files/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -412,7 +681,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/project-setup/create-theme-files/" target="_blank">
       Give us feedback
     </a>
   </div>

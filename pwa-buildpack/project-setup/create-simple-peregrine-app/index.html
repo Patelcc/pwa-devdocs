@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>PWA Buildpack | Magento PWA Documentation</title>
+	<title>Create simple peregrine app | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -167,7 +167,7 @@
 
     <ul class="table-of-contents">
     
-        <li class="active">
+        <li >
             
             <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
@@ -207,7 +207,7 @@
                     
                 </li>
             
-                <li >
+                <li class="active">
                     
                     <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
                     
@@ -330,7 +330,7 @@
   
     
     
-    <li class="breadcrumb-item active">
+    <li class="breadcrumb-item ">
       <a href="/pwa-devdocs/pwa-buildpack/">
         PWA Buildpack
       </a>
@@ -381,17 +381,271 @@
   
 
 
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/">
+        Project setup tutorial
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/">
+        Create simple peregrine app
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
 
   </ol>
 </nav>
 
-	<h1 class="page-heading">PWA Buildpack</h1>
+	<h1 class="page-heading">Create simple peregrine app</h1>
 </section>
 
-			<p>PWA Buildpack is a build and development tool and library for Magento Progressive Web Apps. 
-Use the PWA Buildpack project to set up and configure your local environment for PWA development.</p>
+			<p>In the <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/">previous topic</a>, you created configuration files for your theme project.
+In this topic, you will create a simple app that follows the <a href="/pwa-devdocs/peregrine/">Peregrine</a> pattern.</p>
 
-<p>Visit the <a href="https://github.com/magento-research/pwa-buildpack"><code class="highlighter-rouge">pwa-buildpack</code></a> repository to contribute to this project.</p>
+<h2 id="create-appjs">Create app.js</h2>
+
+<ol>
+  <li>Create the <code class="highlighter-rouge">src</code> and <code class="highlighter-rouge">src/components</code> directories in your theme’s root directory using the following command:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir</span> <span class="nt">-p</span> src/components
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Inside the <code class="highlighter-rouge">components</code> directory, create an <code class="highlighter-rouge">app.js</code> file with the following content:</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">App</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+     <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="p">(</span>
+             <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+                 Hello, Studio!
+             <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+         <span class="p">);</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+
+</code></pre></div>    </div>
+
+    <p>This code defines a React component that returns “Hello, Studio!” inside <code class="highlighter-rouge">h1</code> tags.</p>
+  </li>
+</ol>
+
+<h2 id="create-indexjs">Create index.js</h2>
+
+<p>Inside <code class="highlighter-rouge">src</code> create an <code class="highlighter-rouge">index.js</code> file with the following content:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Peregrine</span> <span class="k">from</span> <span class="s1">'@magento/peregrine'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="s1">'./components/app'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Peregrine</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">component</span> <span class="o">=</span> <span class="nx">App</span><span class="p">;</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="nx">container</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="s1">'serviceWorker'</span> <span class="k">in</span> <span class="nb">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nb">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span>
+            <span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SERVICE_WORKER_FILE_NAME</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">app</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>This imports the previously-defined <code class="highlighter-rouge">app</code> component and incorporates it into Peregrine before adding it to an HTML <code class="highlighter-rouge">root</code> element.</p>
+
+<h2 id="create-rootcomponents-directory">Create RootComponents directory</h2>
+
+<p>Inside <code class="highlighter-rouge">src</code>, create a <code class="highlighter-rouge">RootComponents</code> directory.
+This directory will contain code for your root components.
+For now, leave this directory empty.</p>
+
+<h2 id="congratulations">Congratulations!</h2>
+
+<p>You have created a Peregrine app skeleton!</p>
+
+<p>If you followed the <a href="/pwa-devdocs/pwa-buildpack/project-setup/">Project setup tutorial</a> from the beginning, you can now run the following command in the root of your theme directory to finish setting up your development environment:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
 
 
 			
@@ -404,7 +658,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/project-setup/create-simple-peregrine-app/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -412,7 +666,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/project-setup/create-simple-peregrine-app/" target="_blank">
       Give us feedback
     </a>
   </div>

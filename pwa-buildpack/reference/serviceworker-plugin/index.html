@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>PWA Buildpack | Magento PWA Documentation</title>
+	<title>ServiceWorkerPlugin | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -167,7 +167,7 @@
 
     <ul class="table-of-contents">
     
-        <li class="active">
+        <li >
             
             <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
@@ -255,7 +255,7 @@
                     
                 </li>
             
-                <li >
+                <li class="active">
                     
                     <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
                     
@@ -330,7 +330,7 @@
   
     
     
-    <li class="breadcrumb-item active">
+    <li class="breadcrumb-item ">
       <a href="/pwa-devdocs/pwa-buildpack/">
         PWA Buildpack
       </a>
@@ -381,17 +381,308 @@
   
 
 
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/">
+        ServiceWorkerPlugin
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
 
   </ol>
 </nav>
 
-	<h1 class="page-heading">PWA Buildpack</h1>
+	<h1 class="page-heading">ServiceWorkerPlugin</h1>
 </section>
 
-			<p>PWA Buildpack is a build and development tool and library for Magento Progressive Web Apps. 
-Use the PWA Buildpack project to set up and configure your local environment for PWA development.</p>
+			<p>A webpack plugin for configuring a ServiceWorker for different PWA development scenarios.</p>
 
-<p>Visit the <a href="https://github.com/magento-research/pwa-buildpack"><code class="highlighter-rouge">pwa-buildpack</code></a> repository to contribute to this project.</p>
+<p>This plugin is a wrapper around the <a href="https://developers.google.com/web/tools/workbox/guides/generate-service-worker/">Google Workbox Webpack Plugin</a>.
+It generates a caching ServiceWorker based on assets emitted by webpack.</p>
+
+<p>The following configurations are available for this plugin:</p>
+
+<ul>
+  <li><strong>normal development</strong> - the ServiceWorker is disabled</li>
+  <li><strong>service worker debugging</strong> - the ServiceWorker and hot-reloading are enabled.</li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<h3 id="serviceworkeroptions"><code class="highlighter-rouge">ServiceWorker(options)</code></h3>
+
+<p>Plugin constructor for the <code class="highlighter-rouge">ServiceWorkerPlugin</code> class.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<ul>
+  <li><strong><code class="highlighter-rouge">options: PluginOptions</code></strong> - Configuration object for the ServiceWorkerPlugin</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">PluginOptions</code> object contains the following properties:</p>
+
+<table style="table-layout:auto">
+  <thead>
+    <tr>
+      <th>Property: Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">env:</code><a href="#environmentobject"><code class="highlighter-rouge">EnvironmentObject</code></a></td>
+      <td><strong>Required.</strong> An object that represents the current environment.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">paths:</code><a href="/pwa-devdocs/pwa-buildpack/reference/object-types/#localprojectlocation"><code class="highlighter-rouge">LocalProjectLocation</code></a></td>
+      <td><strong>Required.</strong> Configuration object that describes where public assets are located.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">enableServiceWorkerDebugging: boolean</code></td>
+      <td>Toggles <a href="#service-worker-debugging">service worker debugging</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">serviceWorkerFilename: string</code></td>
+      <td><strong>Required.</strong> The name of the ServiceWorker file this theme creates.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">runtimeCacheAssetPath: string</code></td>
+      <td>A remote URL or root path to assets the ServiceWorker should cache during runtime.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p id="environmentobject">The <code class="highlighter-rouge">EnvironmentObject</code> contains the following properties:</p>
+
+<table style="table-layout:auto">
+  <thead>
+    <tr>
+      <th>Property: Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">phase: string</code></td>
+      <td>Must be <strong>development</strong> or <strong>production</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>In <code class="highlighter-rouge">webpack.config.js</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">buildpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@magento/pwa-buildpack'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ServiceWorkerPlugin</span> <span class="o">=</span> <span class="nx">buildpack</span><span class="p">.</span><span class="nx">Webpack</span><span class="p">.</span><span class="nx">ServiceWorkerPlugin</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">async</span> <span class="nx">env</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="cm">/* webpack config, i.e. entry, output, etc. */</span>
+        <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+            <span class="cm">/* other plugins */</span>
+            <span class="k">new</span> <span class="nx">ServiceWorkerPlugin</span><span class="p">({</span>
+                <span class="na">env</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">mode</span><span class="p">:</span> <span class="s1">'development'</span>
+                <span class="p">},</span>
+
+                <span class="na">paths</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="na">output</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'web/js'</span><span class="p">),</span>
+                    <span class="na">assets</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'web'</span><span class="p">)</span>
+                <span class="p">},</span>
+                <span class="na">enableServiceWorkerDebugging</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="na">serviceWorkerFileName</span><span class="p">:</span> <span class="s1">'sw.js'</span><span class="p">,</span>
+                <span class="na">runtimeCacheAssetPath</span><span class="p">:</span> <span class="s1">'https://cdn.url'</span>
+            <span class="p">})</span>
+        <span class="p">]</span>
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+
+<span class="p">};</span>
+
+</code></pre></div></div>
+
+<h2 id="service-worker-debugging">Service worker debugging</h2>
+
+<p>When <code class="highlighter-rouge">PluginOptions.enableServiceWorkerDebugging</code> is set to <code class="highlighter-rouge">true</code>, hot reloading is enabled and the ServiceWorker is active in the document root.</p>
+
+<p>When this value is set to <code class="highlighter-rouge">false</code>, the ServiceWorker is disabled to prevent cache interruptions when hot reloading assets.</p>
 
 
 			
@@ -404,7 +695,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/reference/serviceworker-plugin/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -412,7 +703,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/reference/serviceworker-plugin/" target="_blank">
       Give us feedback
     </a>
   </div>

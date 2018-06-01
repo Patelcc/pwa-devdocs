@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Magento PWA Documentation</title>
+	<title>Object types | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/technologies/basic-concepts/app-shell/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/reference/object-types/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -100,7 +100,7 @@
   
 
   
-  <li class="menuitem ">
+  <li class="menuitem current">
       <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
   </li>
   
@@ -163,13 +163,13 @@
 
 
 <div class="menu-section">
-    <div class="toc-entry"><h4 class="guide-title">Technologies</h4></div>
+    <div class="toc-entry"><h4 class="guide-title">PWA Buildpack</h4></div>
 
     <ul class="table-of-contents">
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/overview/" class=" ">Overview</a>
+            <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
 
             
@@ -177,15 +177,7 @@
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/tools-libraries/" class=" ">Tools and libraries</a>
-            
-
-            
-        </li>
-    
-        <li >
-            
-            <a href="/pwa-devdocs/technologies/basic-concepts/" class=" parent">Basic concepts</a>
+            <a href="/pwa-devdocs/pwa-buildpack/project-setup/" class=" parent">Project setup tutorial</a>
             
 
             
@@ -193,7 +185,79 @@
             
                 <li >
                     
-                    <a href="/pwa-devdocs/technologies/basic-concepts/container-extensibility/" class=" ">Container extensibility</a>
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/" class=" ">Link project to the Magento backend</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/" class=" parent">Create configuration files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <span>Tools reference</span>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/" class=" ">magento-layout-loader</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/" class=" ">MagentoResolver</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
+                    
+                </li>
+            
+                <li class="active">
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/" class=" ">Object Types</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
                     
                 </li>
             
@@ -265,123 +329,10 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-
-
-  
-  
-  
-
-  
-
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
     
     <li class="breadcrumb-item ">
-      <a href="/pwa-devdocs/technologies/basic-concepts/">
-        Basic Concepts
+      <a href="/pwa-devdocs/pwa-buildpack/">
+        PWA Buildpack
       </a>
     </li>
     
@@ -402,6 +353,32 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -422,6 +399,81 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
   
     
   
@@ -452,10 +504,22 @@
     
     
     <li class="breadcrumb-item active">
-      <a href="/pwa-devdocs/technologies/basic-concepts/app-shell/">
-        
+      <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/">
+        Object types
       </a>
     </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -502,17 +566,39 @@
   </ol>
 </nav>
 
-	<h1 class="page-heading"></h1>
+	<h1 class="page-heading">Object types</h1>
 </section>
 
-			<h2 id="sorry">Sorry!</h2>
+			<p>This is a list of common object types shared between the PWA-Buildpack modules.</p>
 
-<p>The content for this page does not exist yet!</p>
+<h2 id="localprojectlocation"><code class="highlighter-rouge">LocalProjectLocation</code></h2>
 
-<p>To contribute to this page, see the following <a href="https://github.com/magento-research/pwa-devdocs/issues/8">GitHub Issue</a> for details.</p>
+<table style="table-layout:auto">
+  <thead>
+    <tr>
+      <th>Property: Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">root: string</code></td>
+      <td>The absolute path of the project’s root directory on the working filesystem.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">output: string</code></td>
+      <td>The directory where webpack should output any built assets.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assets: string</code></td>
+      <td>The directory where any assets not explicityl build by webpack is found.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><a href="/pwa-devdocs/">Return to main page</a></p>
+<h3 id="output-location">Output location</h3>
 
+<p>If the value for <code class="highlighter-rouge">LocalProjectLocation.output</code> is relative, the location is resolved from <code class="highlighter-rouge">root</code>.</p>
 
 			
 		</div>
@@ -524,7 +610,7 @@
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/technologies/basic-concepts/app-shell/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/reference/object-types/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -532,7 +618,7 @@
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /technologies/basic-concepts/app-shell/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/reference/object-types/" target="_blank">
       Give us feedback
     </a>
   </div>

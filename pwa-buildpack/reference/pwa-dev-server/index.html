@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>PWA Buildpack | Magento PWA Documentation</title>
+	<title>PWADevServer | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -167,7 +167,7 @@
 
     <ul class="table-of-contents">
     
-        <li class="active">
+        <li >
             
             <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
@@ -249,7 +249,7 @@
                     
                 </li>
             
-                <li >
+                <li class="active">
                     
                     <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
                     
@@ -330,7 +330,7 @@
   
     
     
-    <li class="breadcrumb-item active">
+    <li class="breadcrumb-item ">
       <a href="/pwa-devdocs/pwa-buildpack/">
         PWA Buildpack
       </a>
@@ -381,17 +381,326 @@
   
 
 
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/">
+        PWADevServer
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
 
   </ol>
 </nav>
 
-	<h1 class="page-heading">PWA Buildpack</h1>
+	<h1 class="page-heading">PWADevServer</h1>
 </section>
 
-			<p>PWA Buildpack is a build and development tool and library for Magento Progressive Web Apps. 
-Use the PWA Buildpack project to set up and configure your local environment for PWA development.</p>
+			<p>A utility for configuring a development OS and a <code class="highlighter-rouge">webpack-dev-server</code> for PWA development.</p>
 
-<p>Visit the <a href="https://github.com/magento-research/pwa-buildpack"><code class="highlighter-rouge">pwa-buildpack</code></a> repository to contribute to this project.</p>
+<p>A typical webpack local development environment uses the <a href="https://webpack.js.org/configuration/dev-server/"><code class="highlighter-rouge">devServer</code></a> settings in <code class="highlighter-rouge">webpack.config.js</code> to create a temporary, local HTTP server to show edits in real time.</p>
+
+<p>PWA development requires the following:</p>
+
+<ul>
+  <li>A <em>secure</em> and <em>trusted</em> host for ServiceWorker operations</li>
+  <li>A <em>unique</em> host to prevent ServiceWorker collisions</li>
+  <li>A customize-able way to proxy backend request to a Magento 2 backing store</li>
+</ul>
+
+<p>PWADevServer performs the following during setup:</p>
+
+<ul>
+  <li>Creates and caches a custom local hostname for the current theme</li>
+  <li>Adds the custom local hostname to <code class="highlighter-rouge">/etc/hosts</code> <br />
+<em>(requires elevated permissions, so you may be asked for a password)</em></li>
+  <li>Creates and caches an SSL certificate for the custom local hostname</li>
+  <li>Adds the certificate to the OS-level keychain for browser trust<br />
+<em>(requires elevated permissions, so you may be asked for a password)</em></li>
+  <li>Customizes the <code class="highlighter-rouge">webpack-dev-server</code> instance to:
+    <ul>
+      <li>Proxy all asset requests not managed by webpack to the Magento store</li>
+      <li>Emulate the public path settings of the Magento store</li>
+      <li>Automatically switch domain names in HTML attributes</li>
+      <li>Debug or disable ServiceWorkers</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<h3 id="configureoptions"><code class="highlighter-rouge">configure(options)</code></h3>
+
+<h4 id="parameters">Parameters</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">options: PWADevServerOptions</code> - Configuration object for the PWADevserver module</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">PWADevServerOptions</code> object contains the following properties:</p>
+
+<table style="table-layout:auto">
+  <thead>
+    <tr>
+      <th>Property: Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id: string</code></td>
+      <td><strong>Required.</strong> A <a href="#choosing-an-id">unique ID</a> for this project.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">publicPath: string</code></td>
+      <td><strong>Required.</strong> The public path to the theme assets in the backend server.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">backendDomain: string</code></td>
+      <td><strong>Required.</strong> The URL of the backend store.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">paths:</code><a href="/pwa-devdocs/pwa-buildpack/reference/object-types/#localprojectlocation"><code class="highlighter-rouge">LocalProjectLocation</code></a></td>
+      <td><strong>Required.</strong> Describes the location of the public static assets directory and where to deploy JavaScript files.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">serviceWorkerFileName: string</code></td>
+      <td><strong>Required.</strong> The name of the ServiceWorker file this theme creates, such as <code class="highlighter-rouge">sw.js</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">changeOrigin: boolean</code></td>
+      <td><strong>Experimental.</strong> Toggles the <a href="#change-origin-feature">change origin feature</a>. Defaults to <code class="highlighter-rouge">false</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Return:</strong></p>
+
+<p>A <a href="https://webpack.js.org/configuration/configuration-types/#exporting-a-promise">Promise</a> configuration type for webpack.</p>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+<code class="highlighter-rouge">PWADevServer.configure()</code> is asynchronous.</p>
+
+<h2 id="example">Example</h2>
+
+<p>In <code class="highlighter-rouge">webpack.config.js</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">buildpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@magento/pwa-buildpack'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">PWADevServer</span> <span class="o">=</span> <span class="nx">buildpack</span><span class="p">.</span><span class="nx">Webpack</span><span class="p">.</span><span class="nx">PWADevServer</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">async</span> <span class="nx">env</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">config</span> <span class="p">{</span>
+        <span class="cm">/* webpack entry, output, rules, etc */</span>
+
+        <span class="na">devServer</span><span class="p">:</span> <span class="kr">await</span> <span class="nx">PWADevServer</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+            <span class="na">publicPath</span><span class="p">:</span> <span class="s1">'/pub/static/frontend/Vendor/theme/en_US/'</span><span class="p">,</span>
+            <span class="na">backendDomain</span><span class="p">:</span> <span class="s1">'https://magento2.localdomain'</span><span class="p">,</span>
+            <span class="na">serviceWorkerFileName</span><span class="p">:</span> <span class="s1">'sw.js'</span><span class="p">,</span>
+            <span class="na">paths</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">output</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'web/js'</span><span class="p">),</span>
+                <span class="na">assets</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'web'</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="na">id</span><span class="p">:</span> <span class="s1">'magento-venia'</span>
+        <span class="p">})</span>
+    <span class="p">};</span>
+
+    <span class="nx">config</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">publicPath</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">devServer</span><span class="p">.</span><span class="nx">publicPath</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+The example provided uses the newer, cleaner <code class="highlighter-rouge">async/await</code> syntax instead of using Promises directly</p>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+The emitted <code class="highlighter-rouge">devServer</code> object may have a custom <code class="highlighter-rouge">publicPath</code>.
+To get the best performance from the ServiceWorker, set <code class="highlighter-rouge">config.output.publicpath</code> to the <code class="highlighter-rouge">publicPath</code> value once the <code class="highlighter-rouge">devServer</code> is created but before creating a ServiceWorker plugin.</p>
+
+<h2 id="choosing-an-id">Choosing an ID</h2>
+
+<p>The <code class="highlighter-rouge">PWADevServerOptions.id</code> property is used to create the dev domain name.
+We recommend using the theme name for this value, but you can use any domain-name-safe string.</p>
+
+<p>If you are developing several copies of a theme simultaneously, use this ID to distinguish them in the internal tooling.</p>
+
+<h2 id="change-origin-feature">Change origin feature</h2>
+
+<p>The <code class="highlighter-rouge">PWADevServerOptions.changeOrigin</code> property toggles an experimental feature that tries to parse HTML responses from the proxied Magento backend and replaces its domain name with the dev server domain name.</p>
 
 
 			
@@ -404,7 +713,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/reference/pwa-dev-server/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -412,7 +721,7 @@ Use the PWA Buildpack project to set up and configure your local environment for
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/reference/pwa-dev-server/" target="_blank">
       Give us feedback
     </a>
   </div>

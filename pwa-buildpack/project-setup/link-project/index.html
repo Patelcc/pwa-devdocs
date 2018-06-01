@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Magento PWA Documentation</title>
+	<title>Link project to the Magento backend | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/technologies/basic-concepts/app-shell/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -100,7 +100,7 @@
   
 
   
-  <li class="menuitem ">
+  <li class="menuitem current">
       <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
   </li>
   
@@ -163,13 +163,13 @@
 
 
 <div class="menu-section">
-    <div class="toc-entry"><h4 class="guide-title">Technologies</h4></div>
+    <div class="toc-entry"><h4 class="guide-title">PWA Buildpack</h4></div>
 
     <ul class="table-of-contents">
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/overview/" class=" ">Overview</a>
+            <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
 
             
@@ -177,15 +177,7 @@
     
         <li >
             
-            <a href="/pwa-devdocs/technologies/tools-libraries/" class=" ">Tools and libraries</a>
-            
-
-            
-        </li>
-    
-        <li >
-            
-            <a href="/pwa-devdocs/technologies/basic-concepts/" class=" parent">Basic concepts</a>
+            <a href="/pwa-devdocs/pwa-buildpack/project-setup/" class=" parent">Project setup tutorial</a>
             
 
             
@@ -193,7 +185,79 @@
             
                 <li >
                     
-                    <a href="/pwa-devdocs/technologies/basic-concepts/container-extensibility/" class=" ">Container extensibility</a>
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
+                    
+                </li>
+            
+                <li class="active">
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/" class=" ">Link project to the Magento backend</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/" class=" parent">Create configuration files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <span>Tools reference</span>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/" class=" ">magento-layout-loader</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/" class=" ">MagentoResolver</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/" class=" ">Object Types</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
                     
                 </li>
             
@@ -265,6 +329,13 @@
     
   
     
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/">
+        PWA Buildpack
+      </a>
+    </li>
+    
   
     
   
@@ -316,46 +387,6 @@
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -380,8 +411,8 @@
     
     
     <li class="breadcrumb-item ">
-      <a href="/pwa-devdocs/technologies/basic-concepts/">
-        Basic Concepts
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/">
+        Project setup tutorial
       </a>
     </li>
     
@@ -402,6 +433,46 @@
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
   
@@ -410,26 +481,6 @@
 
   
 
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
   
@@ -452,10 +503,30 @@
     
     
     <li class="breadcrumb-item active">
-      <a href="/pwa-devdocs/technologies/basic-concepts/app-shell/">
-        
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/">
+        Link project to the Magento backend
       </a>
     </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -502,16 +573,56 @@
   </ol>
 </nav>
 
-	<h1 class="page-heading"></h1>
+	<h1 class="page-heading">Link project to the Magento backend</h1>
 </section>
 
-			<h2 id="sorry">Sorry!</h2>
+			<p>In the <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/">previous topic</a>, you created a <code class="highlighter-rouge">package.json</code> file and installed the project dependencies.
+In this topic, you will use Composer to link your project with the Magento backend store.</p>
 
-<p>The content for this page does not exist yet!</p>
+<h2 id="install-project-using-composer">Install project using Composer</h2>
 
-<p>To contribute to this page, see the following <a href="https://github.com/magento-research/pwa-devdocs/issues/8">GitHub Issue</a> for details.</p>
+<ol>
+  <li>Navigate to the root directory of your Magento installation.</li>
+  <li>
+    <p>Run the following command to add your theme project directory as a module repository to Magento’s <code class="highlighter-rouge">composer.json</code>:</p>
 
-<p><a href="/pwa-devdocs/">Return to main page</a></p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer config repositories.pwadev <span class="se">\</span>
+<span class="s1">'{"type":"path","url":"path/to/orange-theme","options":{"symlinks":true}}'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Run the following command to add your theme to <code class="highlighter-rouge">composer.json</code> as a local linked dependency:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require <span class="nt">--dev</span> orangecompany/orange-theme
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="check-installation">Check installation</h2>
+
+<h3 id="command-line">Command line</h3>
+
+<p>In the root directory of your Magento installation, run the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-og</span> vendor/orangecompany | <span class="nb">grep</span> <span class="s2">"^l"</span>
+</code></pre></div></div>
+
+<p>This command shows the <code class="highlighter-rouge">orange-theme</code> symlink directory inside the <code class="highlighter-rouge">vendor/orangecompany</code> directory and the path to the real project directory.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lrwxr-xr-x   1    37 Apr 11 21:54 orange-theme -&gt; path/to/orange-theme
+</code></pre></div></div>
+
+<p>Since the theme project is installed using a symlink, any edits made in the original location appear on the store without re-installing the plugin.</p>
+
+<h3 id="admin">Admin</h3>
+
+<p>Log into the Admin section of your Magento installation and select <strong>Themes</strong> in the <strong>Content</strong> tab.</p>
+
+<p>You should see Orange Theme listed as one of the available themes in Magento.</p>
+
+<p>To install the theme, select <strong>Configuration</strong> in the <strong>Content</strong> tab and set your storefront to use the Orange Theme.</p>
+
+<p>The next step is to <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/">create the configuration files</a>.</p>
 
 
 			
@@ -524,7 +635,7 @@
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/technologies/basic-concepts/app-shell/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/project-setup/link-project/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -532,7 +643,7 @@
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /technologies/basic-concepts/app-shell/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/project-setup/link-project/" target="_blank">
       Give us feedback
     </a>
   </div>
