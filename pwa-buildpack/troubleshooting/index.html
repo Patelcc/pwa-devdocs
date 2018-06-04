@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Router | Magento PWA Documentation</title>
+	<title>Troubleshooting | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA application.">
 
 	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
@@ -55,7 +55,7 @@
 
 
 
-	<link rel="canonical" href="/pwa-devdocs/peregrine/reference/router/">
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/troubleshooting/">
 
 	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
 	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
@@ -100,13 +100,13 @@
   
 
   
-  <li class="menuitem ">
+  <li class="menuitem current">
       <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
   </li>
   
 
   
-  <li class="menuitem current">
+  <li class="menuitem ">
       <a href="/pwa-devdocs/peregrine/">UI Components</a>
   </li>
   
@@ -163,13 +163,13 @@
 
 
 <div class="menu-section">
-    <div class="toc-entry"><h4 class="guide-title">Peregrine</h4></div>
+    <div class="toc-entry"><h4 class="guide-title">PWA Buildpack</h4></div>
 
     <ul class="table-of-contents">
     
         <li >
             
-            <a href="/pwa-devdocs/peregrine/" class=" ">Overview</a>
+            <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
             
 
             
@@ -177,7 +177,7 @@
     
         <li >
             
-            <span>Component Reference</span>
+            <a href="/pwa-devdocs/pwa-buildpack/project-setup/" class=" parent">Project setup tutorial</a>
             
 
             
@@ -185,17 +185,91 @@
             
                 <li >
                     
-                    <a href="/pwa-devdocs/peregrine/reference/container-child/" class=" ">ContainerChild</a>
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
                     
                 </li>
             
-                <li class="active">
+                <li >
                     
-                    <a href="/pwa-devdocs/peregrine/reference/router/" class=" ">Router</a>
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/" class=" ">Link project to the Magento backend</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/" class=" parent">Create configuration files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
                     
                 </li>
             
             </ul>
+            
+        </li>
+    
+        <li >
+            
+            <span>Tools reference</span>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/" class=" ">magento-layout-loader</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/" class=" ">MagentoResolver</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/" class=" ">Object Types</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li class="active">
+            
+            <a href="/pwa-devdocs/pwa-buildpack/troubleshooting/" class=" ">Troubleshooting</a>
+            
+
             
         </li>
     
@@ -235,10 +309,40 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     
     <li class="breadcrumb-item ">
-      <a href="/pwa-devdocs/peregrine/">
-        Peregrine
+      <a href="/pwa-devdocs/pwa-buildpack/">
+        PWA Buildpack
       </a>
     </li>
     
@@ -285,36 +389,6 @@
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
 
   
@@ -353,65 +427,6 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-
-
-  
-  
-  
-
-  
-
   
     
   
@@ -420,40 +435,10 @@
     
     
     <li class="breadcrumb-item active">
-      <a href="/pwa-devdocs/peregrine/reference/router/">
-        Router
+      <a href="/pwa-devdocs/pwa-buildpack/troubleshooting/">
+        Troubleshooting
       </a>
     </li>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -506,53 +491,72 @@
   </ol>
 </nav>
 
-	<h1 class="page-heading">Router</h1>
+	<h1 class="page-heading">Troubleshooting</h1>
 </section>
 
-			<p>The Peregrine Router is a client-side router that is designed to understand the different storefront routes within Magento 2.
-If using Peregrine to bootstrap your PWA, it is configured automatically. If not, the Router can be manually consumed.</p>
+			<p>This page lists solutions for common issues reported by community members for the PWA Buildpack project.
+If you run into any other problems please <a href="https://github.com/magento-research/pwa-buildpack/issues">create an issue</a> or let us know in our <a href="https://magentocommeng.slack.com/messages/C71HNKYS2/team/UAFV915FB/">Slack channel</a>.</p>
 
-<h2 id="props">Props</h2>
+<p>To provide more details for your issue, enable verbose console logging.
+Instead of <code class="highlighter-rouge">npm start</code> run the following command to set a debugging environment variable:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th style="text-align: center">Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">apiBase</code></td>
-      <td style="text-align: center"><i class="material-icons green">check_box</i></td>
-      <td>Root URL of the Magento store (including protocol and hostname)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">using</code></td>
-      <td style="text-align: center"> </td>
-      <td>Router implementation from React-Router. Possible values: <code class="highlighter-rouge">BrowserRouter</code>, <code class="highlighter-rouge">HashRouter</code>, <code class="highlighter-rouge">MemoryRouter</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">routerProps</code></td>
-      <td style="text-align: center"> </td>
-      <td>Any additional props to pass to React-Router</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="example">Example</h2>
-
-<p>The following example shows the manual usage of the Router component:</p>
-
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="s1">'react-dom'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Router</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@magento/peregrine'</span><span class="p">;</span>
-
-<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
-    <span class="p">&lt;</span><span class="nc">Router</span> <span class="na">apiBase=</span><span class="s2">"https://mystore.com"</span> <span class="p">/&gt;,</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">)</span>
-<span class="p">);</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">DEBUG</span><span class="o">=</span>pwa-buildpack:<span class="k">*</span> npm start
 </code></pre></div></div>
+
+<p>Paste the result console output into the issue. Thank you!</p>
+
+<h2 id="common-issues">Common issues</h2>
+
+<ul>
+  <li><a href="#cannot-proxy">Browser displays “Cannot proxy to “ error and the console displays <code class="highlighter-rouge">ENOTFOUND</code></a></li>
+  <li><a href="#webpack-hangs">Webpack hangs for a long time before beginning compilation</a></li>
+  <li><a href="#cannot-resolve-site">Browser cannot resolve the <code class="highlighter-rouge">.local.pwadev</code> site</a></li>
+  <li><a href=":#untrusted-ssl-cert">Browser does not trust the generated SSL certificate</a></li>
+</ul>
+
+<h2 id="resolutions">Resolutions</h2>
+
+<p><strong id="cannot-proxy">Browser displays “Cannot proxy to “ error and the console displays <code class="highlighter-rouge">ENOTFOUND</code></strong></p>
+
+<p>Make sure your Magento store loads in more than one browser.</p>
+
+<p>If you are running a local DNS server or VPN, add an entry to your hostfile and manually map this domain so NodeJS can resolve it.</p>
+
+<p><strong id="webpack-hangs">Webpack hangs for a long time before beginning compilation</strong></p>
+
+<p>You may have an old version of the <code class="highlighter-rouge">pwa-buildpack</code> project.
+Update your project using the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm upgrade
+</code></pre></div></div>
+
+<p>Make sure you have a current version of openssl on your system using the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl version
+</code></pre></div></div>
+
+<p>The version should be 1.0 or above (or LibreSSL 2, in the case of OSX High Sierra.)</p>
+
+<p>You can install higher versions of OpenSSL with <a href="https://brew.sh/">Homebrew</a> on OSX, <a href="https://chocolatey.org/">Chocolatey</a> on Windows, or your Linux distribution’s package manager.</p>
+
+<p><strong id="cannot-resolve-site">Browser cannot resolve the <code class="highlighter-rouge">.local.pwadev</code> site</strong></p>
+
+<p>Something has edited your hostfile, and the local PWA Studio dev database is out of sync.
+Regenerate the database file by deleting it with the following command:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> ~/.config/pwa-buildpack.db
+</code></pre></div></div>
+
+<p><strong id="untrusted-ssl-cert">Browser does not trust the generated SSL certificate</strong></p>
+
+<p>Make sure you have a current version of openssl on your system using the following command:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl version
+</code></pre></div></div>
+
+<p>The version should be 1.0 or above (or LibreSSL 2, in the case of OSX High Sierra.)</p>
+
+<p>You can install higher versions of OpenSSL with <a href="https://brew.sh/">Homebrew</a> on OSX, <a href="https://chocolatey.org/">Chocolatey</a> on Windows, or your Linux distribution’s package manager.</p>
+
 
 			
 		</div>
@@ -564,7 +568,7 @@ If using Peregrine to bootstrap your PWA, it is configured automatically. If not
 
   
   <div class="github-link">
-    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/peregrine/reference/router/index.md" target="_blank">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/troubleshooting/index.md" target="_blank">
       Edit this page on GitHub
     </a>
   </div>
@@ -572,7 +576,7 @@ If using Peregrine to bootstrap your PWA, it is configured automatically. If not
 
   
   <div class="new-issue">
-    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /peregrine/reference/router/" target="_blank">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/troubleshooting/" target="_blank">
       Give us feedback
     </a>
   </div>
